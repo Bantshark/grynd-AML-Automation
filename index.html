@@ -1,0 +1,693 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .page {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-text-primary);
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  .syne { font-family: 'Syne', sans-serif; }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    margin-bottom: 4rem;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: #013EEF;
+  }
+
+  .nav-cta {
+    background: #013EEF;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .urgency-bar {
+    background: #013EEF;
+    color: #fff;
+    text-align: center;
+    padding: 10px 1rem;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 -1.5rem 0;
+    letter-spacing: 0.01em;
+  }
+
+  .urgency-bar span {
+    background: #FEC959;
+    color: #030935;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    padding: 5rem 0 4rem;
+    max-width: 780px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #013EEF;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: #013EEF;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: #013EEF;
+  }
+
+  .hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: #013EEF;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 0.5px solid var(--color-border-primary);
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .deadline-note {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FF6700;
+    display: inline-block;
+    animation: pulse 1.4s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border-tertiary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5rem;
+  }
+
+  .stat {
+    background: var(--color-background-primary);
+    padding: 1.75rem 1.5rem;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #013EEF;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .section {
+    margin-bottom: 5rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .service-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+  }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    background: #013EEF10;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .service-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+  }
+
+  .service-card p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--color-background-secondary);
+    color: var(--color-text-secondary);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .tag.blue {
+    background: #013EEF15;
+    color: #013EEF;
+  }
+
+  .process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+    align-items: flex-start;
+  }
+
+  .process-step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #013EEF;
+    min-width: 28px;
+    padding-top: 2px;
+  }
+
+  .step-body h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--color-text-primary);
+  }
+
+  .step-body p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+  }
+
+  .timeline-card.urgent {
+    border-color: #FF6700;
+    border-width: 1px;
+  }
+
+  .timeline-date {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+
+  .timeline-date.red { color: #FF6700; }
+
+  .timeline-label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .form-section {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+  }
+
+  .form-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .form-sub {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 10px 14px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: #013EEF;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .footer-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin-top: 4rem;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  .footer-logo span { color: #013EEF; }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+  }
+
+  @media (max-width: 600px) {
+    .services-grid, .timeline-row, .form-grid, .stats-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="urgency-bar">
+    <span>CBN Circular — March 10, 2026</span>
+    All regulated financial institutions must submit AML implementation roadmaps to CBN by <strong>June 10, 2026</strong>
+  </div>
+
+  <nav class="nav">
+    <div class="logo">grynd<span>.</span>digital</div>
+    <button class="nav-cta" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Book a free audit</button>
+  </nav>
+
+  <div class="hero">
+    <div class="eyebrow">CBN Baseline Standards for Automated AML Solutions</div>
+    <h1>Your compliance deadline<br>is <em>90 days away.</em><br>Your system isn't ready.</h1>
+    <p>The CBN's March 10, 2026 circular mandates automated AML systems across all financial institutions in Nigeria. Banks have 18 months to fully comply. Every institution must submit an implementation roadmap to the CBN Compliance Department by June 10, 2026. Grynd builds the automation infrastructure that keeps you compliant, audit-ready, and ahead of regulatory sanctions.</p>
+    <div class="cta-row">
+      <button class="btn-primary" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Get your compliance audit</button>
+      <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See what we build</button>
+    </div>
+    <div class="deadline-note">
+      <span class="dot"></span>
+      Roadmap submission deadline: June 10, 2026 — 86 days from today
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">90</div>
+      <div class="stat-label">Days to submit your CBN implementation roadmap</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">18mo</div>
+      <div class="stat-label">Full compliance deadline for deposit money banks</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Of CBN-supervised institutions are affected by this circular</div>
+    </div>
+  </div>
+
+  <div class="section" id="services">
+    <div class="section-label">What we build</div>
+    <h2 class="section-title">Four automation systems.<br>Full CBN compliance.</h2>
+    <p class="section-sub">Every system we build is aligned to Circular BSD/DIR/PUB/LAB/019/002 and the FATF recommendations it enforces. No bolt-ons. Integrated infrastructure.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3>AML Transaction Monitoring</h3>
+        <p>Real-time transaction surveillance with rule-based and AI-assisted anomaly detection. Flags unusual patterns — large cash flows, structured deposits, cross-border transfers — instantly across all channels.</p>
+        <span class="tag blue">CBN required</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <h3>KYC Onboarding Automation</h3>
+        <p>Automated customer identity verification integrated with BVN and NIN national databases. Risk-scored customer profiles generated at onboarding with EDD triggers for PEPs and high-risk segments.</p>
+        <span class="tag blue">CBN required</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
+            <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3>SAR Auto-Generation</h3>
+        <p>Automated Suspicious Activity Report and Suspicious Transaction Report generation in NFIU-compliant formats. Maker-checker workflows with full audit trails ensure every report is accurate, complete, and submitted on time.</p>
+        <span class="tag blue">NFIU required</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3>Real-Time CBN/NFIU Reporting Pipeline</h3>
+        <p>Secure API-integrated reporting pipeline that connects your core banking system to CBN and NFIU submission requirements. Encrypted transmission, role-based access, and tamper-proof audit logs built in.</p>
+        <span class="tag blue">CBN required</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From audit to live system<br>in four steps.</h2>
+    <p class="section-sub">We move fast because your deadline doesn't wait. Most institutions are behind the optimal preparation curve already.</p>
+
+    <div class="process-list">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Compliance gap audit</h4>
+          <p>We assess your current AML infrastructure against CBN Circular BSD/DIR/PUB/LAB/019/002. You get a clear breakdown of what's missing, what's at risk, and what the roadmap submission needs to say.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Implementation roadmap</h4>
+          <p>We build the structured roadmap document required by the CBN Compliance Department — covering all 10 baseline technical requirements, timeline commitments, and system architecture decisions.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Automation build and integration</h4>
+          <p>We build your AML automation stack — transaction monitoring, KYC flows, SAR generation, and reporting pipelines — integrated with your core banking system via secure APIs.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h4>Ongoing compliance management</h4>
+          <p>We stay on as your compliance automation partner — monitoring system performance, updating rules as the regulatory environment evolves, and ensuring you stay audit-ready at every CBN inspection.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Your timeline</div>
+    <h2 class="section-title">Three deadlines.<br>One chance to get ahead.</h2>
+
+    <div class="timeline-row">
+      <div class="timeline-card urgent">
+        <div class="timeline-date red">June 10, 2026</div>
+        <div class="timeline-label">Implementation roadmap due to CBN Compliance Department. Every regulated institution. No exceptions.</div>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-date">Sept 10, 2027</div>
+        <div class="timeline-label">Full AML system deployment deadline for deposit money banks (18 months from circular).</div>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-date">March 10, 2028</div>
+        <div class="timeline-label">Full compliance deadline for other financial institutions — fintechs, MFBs, payment providers (24 months).</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.6;">Non-compliance exposes your institution to administrative sanctions, remedial directives, and financial penalties against both the institution and responsible compliance officers personally. The CBN will monitor compliance through off-site surveillance, on-site examinations, and thematic regulatory reviews.</p>
+  </div>
+
+  <div class="section" id="lead-form">
+    <div class="form-section">
+      <div class="form-title">Get your free compliance audit</div>
+      <div class="form-sub">We'll assess your current AML infrastructure against the CBN baseline standards and show you exactly what needs to be built before June 10. No pitch. Just a clear breakdown.</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Full name</label>
+          <input type="text" placeholder="Adaeze Okafor" />
+        </div>
+        <div class="form-group">
+          <label>Job title</label>
+          <input type="text" placeholder="Chief Compliance Officer" />
+        </div>
+        <div class="form-group">
+          <label>Institution name</label>
+          <input type="text" placeholder="Zenith Payments Ltd" />
+        </div>
+        <div class="form-group">
+          <label>Institution type</label>
+          <select>
+            <option value="">Select type</option>
+            <option>Deposit Money Bank</option>
+            <option>Fintech / Payment Service Provider</option>
+            <option>Mobile Money Operator</option>
+            <option>Microfinance Bank</option>
+            <option>International Money Transfer Operator</option>
+            <option>Other regulated institution</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Work email</label>
+          <input type="email" placeholder="adaeze@institution.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone (WhatsApp)</label>
+          <input type="tel" placeholder="+234 800 000 0000" />
+        </div>
+        <div class="form-group full">
+          <label>Current AML status</label>
+          <select>
+            <option value="">Where are you today?</option>
+            <option>Fully manual — no automation in place</option>
+            <option>Partial — some tools, not integrated</option>
+            <option>Have a system — need gap assessment</option>
+            <option>Starting from scratch — new institution</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="submit-btn" onclick="this.textContent='Request received — we will contact you within 24 hours'; this.style.background='#0E1675'">
+        Book my free compliance audit →
+      </button>
+      <div class="form-note">We respond within 24 hours. Audit is free. No obligation to proceed.</div>
+    </div>
+  </div>
+
+  <div class="footer-strip">
+    <div class="footer-logo">grynd<span>.</span>digital — compliance automation</div>
+    <div class="footer-note">compliance.grynd.digital</div>
+  </div>
+
+</div>
