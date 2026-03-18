@@ -1,17 +1,24 @@
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --font-display: 'Epilogue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --color-primary: #013EEF;
+    --color-accent: #FEC959;
+    --color-warning: #FF6700;
+    --color-dark: #030935;
+  }
+
   .page {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--color-text-primary);
     max-width: 960px;
     margin: 0 auto;
     padding: 0 1.5rem 4rem;
   }
-
-  .syne { font-family: 'Syne', sans-serif; }
 
   .nav {
     display: flex;
@@ -19,37 +26,29 @@
     align-items: center;
     padding: 1.5rem 0;
     border-bottom: 0.5px solid var(--color-border-tertiary);
-    margin-bottom: 4rem;
-  }
-
-  .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: -0.5px;
-  }
-
-  .logo span {
-    color: #013EEF;
+    margin-bottom: 3rem;
   }
 
   .nav-cta {
-    background: #013EEF;
+    background: var(--color-primary);
     color: #fff;
     border: none;
-    padding: 8px 20px;
+    padding: 10px 22px;
     border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
+    font-family: var(--font-body);
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+    transition: opacity 0.2s;
   }
 
+  .nav-cta:hover { opacity: 0.9; }
+
   .urgency-bar {
-    background: #013EEF;
+    background: var(--color-primary);
     color: #fff;
     text-align: center;
-    padding: 10px 1rem;
+    padding: 12px 1rem;
     font-size: 13px;
     font-weight: 500;
     margin: 0 -1.5rem 0;
@@ -57,54 +56,56 @@
   }
 
   .urgency-bar span {
-    background: #FEC959;
-    color: #030935;
-    padding: 2px 8px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    padding: 3px 10px;
     border-radius: 4px;
     font-weight: 700;
-    margin-right: 8px;
-    font-size: 11px;
+    margin-right: 10px;
+    font-size: 10px;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .hero {
-    padding: 5rem 0 4rem;
-    max-width: 780px;
+    padding: 4rem 0 3.5rem;
+    max-width: 720px;
   }
 
   .eyebrow {
+    font-family: var(--font-body);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #013EEF;
+    color: var(--color-primary);
     margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
 
   .eyebrow::before {
     content: '';
     display: block;
-    width: 24px;
-    height: 1.5px;
-    background: #013EEF;
+    width: 28px;
+    height: 2px;
+    background: var(--color-primary);
   }
 
   .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
     color: var(--color-text-primary);
   }
 
   .hero h1 em {
     font-style: normal;
-    color: #013EEF;
+    color: var(--color-primary);
   }
 
   .hero p {
@@ -112,7 +113,7 @@
     line-height: 1.7;
     color: var(--color-text-secondary);
     max-width: 600px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .cta-row {
@@ -123,43 +124,34 @@
   }
 
   .btn-primary {
-    background: #013EEF;
+    background: var(--color-primary);
     color: #fff;
     border: none;
     padding: 14px 28px;
     border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+    transition: opacity 0.2s;
   }
 
-  .btn-secondary {
-    background: transparent;
-    color: var(--color-text-primary);
-    border: 0.5px solid var(--color-border-primary);
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    cursor: pointer;
-  }
+  .btn-primary:hover { opacity: 0.9; }
 
   .deadline-note {
     font-size: 13px;
     color: var(--color-text-secondary);
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
 
   .dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: #FF6700;
+    background: var(--color-warning);
     display: inline-block;
     animation: pulse 1.4s ease infinite;
   }
@@ -174,10 +166,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--color-border-tertiary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: 10px;
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   .stat {
@@ -186,125 +178,118 @@
   }
 
   .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: #013EEF;
-    letter-spacing: -1px;
-    margin-bottom: 4px;
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
   }
 
   .stat-label {
     font-size: 13px;
     color: var(--color-text-secondary);
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   .section-label {
+    font-family: var(--font-body);
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-text-tertiary);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 0.5px solid var(--color-border-tertiary);
+    border-bottom: 1px solid var(--color-border-tertiary);
   }
 
   .section {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 28px;
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 32px);
     font-weight: 700;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.02em;
     margin-bottom: 1rem;
     color: var(--color-text-primary);
+    line-height: 1.15;
   }
 
   .section-sub {
     font-size: 16px;
     color: var(--color-text-secondary);
     line-height: 1.7;
-    max-width: 580px;
-    margin-bottom: 2.5rem;
+    max-width: 620px;
+    margin-bottom: 2rem;
   }
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
   }
 
   .service-card {
     background: var(--color-background-primary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
     padding: 1.5rem;
   }
 
-  .service-icon {
-    width: 36px;
-    height: 36px;
-    background: #013EEF10;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .service-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
   .service-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
     color: var(--color-text-primary);
   }
 
   .service-card p {
-    font-size: 13px;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  .service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+  }
+
+  .service-card li {
+    font-size: 14px;
     color: var(--color-text-secondary);
     line-height: 1.6;
-    margin-bottom: 1rem;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 6px;
   }
 
-  .tag {
-    display: inline-block;
-    background: var(--color-background-secondary);
-    color: var(--color-text-secondary);
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-  }
-
-  .tag.blue {
-    background: #013EEF15;
-    color: #013EEF;
+  .service-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-size: 12px;
   }
 
   .process-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
     overflow: hidden;
   }
 
   .process-step {
     display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    border-bottom: 0.5px solid var(--color-border-tertiary);
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-border-tertiary);
     background: var(--color-background-primary);
     align-items: flex-start;
   }
@@ -312,179 +297,138 @@
   .process-step:last-child { border-bottom: none; }
 
   .step-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
+    font-family: var(--font-display);
+    font-size: 12px;
     font-weight: 700;
-    color: #013EEF;
+    color: var(--color-primary);
     min-width: 28px;
     padding-top: 2px;
   }
 
   .step-body h4 {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-display);
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 4px;
     color: var(--color-text-primary);
   }
 
   .step-body p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--color-text-secondary);
     line-height: 1.6;
   }
 
   .timeline-row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-bottom: 2rem;
   }
 
   .timeline-card {
     background: var(--color-background-primary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
     padding: 1.25rem;
   }
 
   .timeline-card.urgent {
-    border-color: #FF6700;
-    border-width: 1px;
+    border-color: var(--color-warning);
+    border-width: 2px;
   }
 
   .timeline-date {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-display);
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--color-text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
-  .timeline-date.red { color: #FF6700; }
+  .timeline-date.red { color: var(--color-warning); }
 
   .timeline-label {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
 
   .callout-box {
-    background: #FF670010;
-    border: 1px solid #FF6700;
-    border-radius: var(--border-radius-lg);
+    background: rgba(255, 103, 0, 0.06);
+    border: 1.5px solid var(--color-warning);
+    border-radius: 12px;
     padding: 1.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   .callout-box h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
+    font-family: var(--font-display);
+    font-size: 17px;
     font-weight: 700;
-    color: #FF6700;
+    color: var(--color-warning);
     margin-bottom: 8px;
   }
 
   .callout-box p {
     font-size: 14px;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
-  .ai-section {
-    background: var(--color-background-secondary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    margin-bottom: 5rem;
-  }
-
-  .ai-section h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+  .callout-box strong {
     color: var(--color-text-primary);
   }
 
-  .ai-section .subtitle {
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+  .why-section {
+    margin-bottom: 4rem;
   }
 
-  .ai-grid {
+  .why-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  .ai-col h4 {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #013EEF;
-    margin-bottom: 0.75rem;
+  .why-card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
+    padding: 1.25rem;
   }
 
-  .ai-col ul {
-    list-style: none;
-    padding: 0;
+  .why-card h4 {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-text-primary);
   }
 
-  .ai-col li {
+  .why-card p {
     font-size: 13px;
     color: var(--color-text-secondary);
     line-height: 1.6;
-    padding-left: 16px;
-    position: relative;
-    margin-bottom: 6px;
-  }
-
-  .ai-col li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #013EEF;
-  }
-
-  .ai-problem {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 0.5px solid var(--color-border-tertiary);
-  }
-
-  .ai-problem p {
-    font-size: 14px;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-  }
-
-  .ai-problem strong {
-    color: var(--color-text-primary);
   }
 
   .form-section {
     background: var(--color-background-secondary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
     padding: 2.5rem;
   }
 
   .form-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
     color: var(--color-text-primary);
   }
 
   .form-sub {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--color-text-secondary);
     margin-bottom: 2rem;
     line-height: 1.6;
@@ -493,8 +437,8 @@
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 14px;
+    margin-bottom: 14px;
   }
 
   .form-group {
@@ -510,40 +454,50 @@
     font-weight: 500;
     color: var(--color-text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
   }
 
   .form-group input,
   .form-group select {
-    padding: 10px 14px;
-    border: 0.5px solid var(--color-border-secondary);
-    border-radius: 6px;
-    font-family: 'DM Sans', sans-serif;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 8px;
+    font-family: var(--font-body);
     font-size: 14px;
     background: var(--color-background-primary);
     color: var(--color-text-primary);
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
   }
 
   .submit-btn {
     width: 100%;
-    background: #013EEF;
+    background: var(--color-primary);
     color: #fff;
     border: none;
-    padding: 14px;
-    border-radius: 6px;
-    font-family: 'Syne', sans-serif;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: var(--font-display);
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 4px;
-    letter-spacing: 0.02em;
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s;
   }
 
+  .submit-btn:hover { opacity: 0.9; }
+
   .form-note {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--color-text-tertiary);
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
   }
 
   .footer-strip {
@@ -551,25 +505,130 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 2rem;
-    border-top: 0.5px solid var(--color-border-tertiary);
+    border-top: 1px solid var(--color-border-tertiary);
     margin-top: 4rem;
   }
 
-  .footer-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
+  /* ==================== RESPONSIVE ==================== */
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 0 1.25rem 3rem;
+    }
+
+    .urgency-bar {
+      margin: 0 -1.25rem 0;
+      padding: 10px 1rem;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .urgency-bar span {
+      display: block;
+      margin: 0 auto 6px;
+      width: fit-content;
+    }
+
+    .nav {
+      margin-bottom: 2rem;
+    }
+
+    .hero {
+      padding: 2.5rem 0 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 15px;
+    }
+
+    .cta-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary {
+      width: 100%;
+      text-align: center;
+      padding: 16px 24px;
+    }
+
+    .stats-row {
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1.25rem;
+    }
+
+    .stat-num {
+      font-size: 32px;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 24px;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-row {
+      grid-template-columns: 1fr;
+    }
+
+    .form-section {
+      padding: 1.5rem;
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+      grid-column: 1;
+    }
+
+    .process-step {
+      padding: 1rem 1.25rem;
+    }
   }
 
-  .footer-logo span { color: #013EEF; }
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 28px;
+    }
 
-  .footer-note {
-    font-size: 12px;
-    color: var(--color-text-tertiary);
-  }
+    .eyebrow {
+      font-size: 11px;
+    }
 
-  @media (max-width: 600px) {
-    .services-grid, .timeline-row, .form-grid, .stats-row, .ai-grid { grid-template-columns: 1fr; }
+    .section-title {
+      font-size: 22px;
+    }
+
+    .stat-num {
+      font-size: 28px;
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
   }
 </style>
 
@@ -577,7 +636,7 @@
 
   <div class="urgency-bar">
     <span>Circular BSD/DIR/PUB/LAB/019/002</span>
-    All regulated financial institutions must submit AML implementation roadmaps to CBN by <strong>June 10, 2026</strong>
+    All MSBs must submit AML implementation roadmaps to CBN by <strong>June 10, 2026</strong>
   </div>
 
   <nav class="nav">
@@ -586,12 +645,11 @@
   </nav>
 
   <div class="hero">
-    <div class="eyebrow">CBN Baseline Standards for Automated AML Solutions</div>
-    <h1>June 10 is <em>83 days away.</em><br>Is your roadmap Board-ready?</h1>
-    <p>The CBN's March 2026 circular ends manual compliance. Every fintech, bank, MMO, and PSP must submit a Board-signed implementation roadmap by June 10 — covering all 10 baseline requirements, AI governance frameworks, and phased deployment timelines. Non-compliance triggers sanctions against your institution <em>and</em> your compliance officers personally.</p>
+    <div class="eyebrow">AI Automation for CBN AML Compliance</div>
+    <h1>Your CBN AML Roadmap is Due. <em>We Can Help.</em></h1>
+    <p>The CBN's March 2026 circular mandates AI-driven AML. MSBs face a critical deadline: submit a Board-signed implementation roadmap by June 10 and deploy automated systems within 24 months. We deliver the intelligent workflow automation and AI governance frameworks that ensure your compliance and protect your operations.</p>
     <div class="cta-row">
-      <button class="btn-primary" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Get your compliance audit</button>
-      <button class="btn-secondary" onclick="document.getElementById('roadmap-section').scrollIntoView({behavior:'smooth'})">See what's required</button>
+      <button class="btn-primary" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Book Your Free Compliance Audit</button>
     </div>
     <div class="deadline-note">
       <span class="dot"></span>
@@ -605,223 +663,128 @@
       <div class="stat-label">Days to submit your Board-signed roadmap</div>
     </div>
     <div class="stat">
-      <div class="stat-num">87.5%</div>
-      <div class="stat-label">Of Nigerian fintechs say compliance costs already limit innovation</div>
+      <div class="stat-num">24</div>
+      <div class="stat-label">Months to full automated AML deployment</div>
     </div>
     <div class="stat">
       <div class="stat-num">10</div>
-      <div class="stat-label">Technical requirements your AML system must meet</div>
-    </div>
-  </div>
-
-  <div class="section" id="roadmap-section">
-    <div class="section-label">The roadmap requirement</div>
-    <h2 class="section-title">What the CBN expects<br>by June 10</h2>
-    <p class="section-sub">The implementation roadmap isn't a checkbox. It's a formal regulatory document that must be Board-authorised and signed by your CEO and Chief Compliance Officer.</p>
-
-    <div class="process-list">
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h4>Current state assessment</h4>
-          <p>Document your existing AML tools, manual processes, and integration points with core banking systems.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>Gap analysis</h4>
-          <p>Map where your current setup fails against all 10 CBN baseline requirements — customer ID, risk profiling, sanctions screening, transaction monitoring, and more.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>Solution architecture</h4>
-          <p>Define what AML platform you're deploying and how it integrates with your core banking system via secure APIs.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <h4>Phased timeline</h4>
-          <p>Named milestones, target dates, and responsible owners for each implementation phase through full compliance.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">05</div>
-        <div class="step-body">
-          <h4>AI governance framework</h4>
-          <p>Annual validation protocols, bias testing methodology, explainability requirements, and human oversight structure.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">06</div>
-        <div class="step-body">
-          <h4>Resource and budget commitment</h4>
-          <p>Cost projections, headcount requirements, and vendor contracts for the full compliance timeline.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">07</div>
-        <div class="step-body">
-          <h4>Board sign-off</h4>
-          <p>CEO and CCO signatures required. This is a formal regulatory submission, not an internal document.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ai-section">
-    <h3>The AI Governance Gap</h3>
-    <p class="subtitle">The CBN wrote AI into compliance. Most fintechs aren't ready.</p>
-    
-    <div class="ai-grid">
-      <div class="ai-col">
-        <h4>What the CBN requires</h4>
-        <ul>
-          <li>Annual independent validation of all AI/ML models</li>
-          <li>Accuracy and performance drift testing</li>
-          <li>Fairness audits and bias testing</li>
-          <li>Explainable insights — investigators must understand why alerts fire</li>
-          <li>Documented human oversight framework</li>
-        </ul>
-      </div>
-      <div class="ai-col">
-        <h4>What we build</h4>
-        <ul>
-          <li>AI validation protocol documentation</li>
-          <li>Bias testing methodology frameworks</li>
-          <li>Explainability audit trails</li>
-          <li>Compliance team training on AI oversight</li>
-          <li>Annual review schedules and checklists</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="ai-problem">
-      <p><strong>The problem:</strong> You can buy an AML tool from any vendor. But the governance framework is <em>your</em> responsibility — not theirs. When the CBN examiner asks how you validate your AI models for bias, your vendor won't be in the room. You will.</p>
+      <div class="stat-label">Baseline requirements your system must meet</div>
     </div>
   </div>
 
   <div class="section" id="services">
-    <div class="section-label">What we build</div>
-    <h2 class="section-title">Four systems.<br>Full CBN compliance.</h2>
-    <p class="section-sub">Every system we build is aligned to Circular BSD/DIR/PUB/LAB/019/002 and the FATF recommendations it enforces.</p>
+    <div class="section-label">Our services</div>
+    <h2 class="section-title">Tailored AI for CBN AML Compliance</h2>
+    <p class="section-sub">We provide bespoke AI automation services, meticulously designed to meet every facet of the CBN's stringent AML requirements. We don't just offer solutions; we build them for you.</p>
 
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
-            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-          </svg>
-        </div>
-        <h3>AML Transaction Monitoring</h3>
-        <p>Real-time transaction surveillance with rule-based and AI-assisted anomaly detection. Monitors across all channels — cards, e-channels, deposits, lending — using full customer profiles, not just raw transaction data.</p>
-        <span class="tag blue">CBN required</span>
+        <h3>Intelligent Workflow Automation</h3>
+        <p>We engineer and integrate automated workflows for real-time transaction monitoring, risk assessment, and suspicious activity detection. Leveraging advanced AI and machine learning, our systems ensure your operations assess activity within the full customer profile, precisely as mandated by the CBN.</p>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
-            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-          </svg>
-        </div>
-        <h3>KYC Onboarding Automation</h3>
-        <p>Automated identity verification integrated with BVN and NIN databases. Risk-scored profiles at onboarding with EDD triggers for PEPs and high-risk segments. Fuzzy matching logic to catch name variations.</p>
-        <span class="tag blue">CBN required</span>
+        <h3>Custom AI Agent Development</h3>
+        <p>Our experts develop and deploy specialized AI agents to automate and enhance critical AML functions:</p>
+        <ul>
+          <li><strong>Enhanced KYC & CDD:</strong> Seamless integration with national identity infrastructure (BVN, NIN) for instant verification.</li>
+          <li><strong>Sanctions & PEP Screening:</strong> Automated, continuous screening against global watchlists to prevent prohibited transactions.</li>
+          <li><strong>Regulatory Reporting:</strong> Streamlined generation and submission of accurate, timely reports directly to the CBN.</li>
+        </ul>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
-            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-          </svg>
-        </div>
-        <h3>Sanctions & PEP Screening</h3>
-        <p>Real-time screening against CBN, OFAC, UN, EU sanctions lists. Continuous PEP monitoring with adverse media screening. Automatic blocking on confirmed matches. Near-real-time list updates.</p>
-        <span class="tag blue">CBN required</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
-            <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
-        </div>
-        <h3>SAR Auto-Generation & NFIU Reporting</h3>
-        <p>Automated STR and SAR generation in NFIU-compliant formats. Maker-checker workflows with tamper-proof audit trails. Secure API-integrated reporting pipeline with encrypted transmission.</p>
-        <span class="tag blue">NFIU required</span>
+        <h3>AI Model Validation & Governance</h3>
+        <p>We establish robust governance frameworks and ensure your AI/ML models meet CBN's directives, including annual independent validation for accuracy, performance, fairness, and bias testing.</p>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">From audit to live system<br>in four steps.</h2>
-    <p class="section-sub">We move fast because your deadline doesn't wait.</p>
+    <div class="section-label">Your path to compliance</div>
+    <h2 class="section-title">From Audit to Live System in Four Steps</h2>
 
     <div class="process-list">
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-body">
-          <h4>Compliance gap audit</h4>
-          <p>We assess your current AML infrastructure against all 10 CBN baseline requirements. You get a clear breakdown: what's missing, what's at risk, and exactly what your roadmap needs.</p>
+          <h4>Compliance Gap Audit</h4>
+          <p>We meticulously assess your current infrastructure against all 10 CBN requirements. You receive a clear breakdown of gaps, risks, and prioritized roadmap actions.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-body">
-          <h4>Board-ready roadmap</h4>
-          <p>We build the structured implementation roadmap document required by the CBN Compliance Department — gap analysis, solution architecture, phased timeline, governance framework, resource commitments. Formatted for Board sign-off.</p>
+          <h4>Board-Ready Roadmap</h4>
+          <p>We construct the comprehensive implementation document required by the CBN, covering gap analysis, architecture, timelines, governance, and budget. Ready for immediate Board sign-off.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <div class="step-body">
-          <h4>Automation build & integration</h4>
-          <p>We build your AML automation stack — transaction monitoring, KYC flows, sanctions screening, SAR generation, reporting pipelines — integrated with your core banking system via secure APIs.</p>
+          <h4>Automation Build & Integration</h4>
+          <p>We deploy your complete AML automation stack—monitoring, KYC, screening, reporting—seamlessly integrated with your core systems via secure APIs.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">04</div>
         <div class="step-body">
-          <h4>Ongoing compliance management</h4>
-          <p>We stay on as your compliance automation partner. System performance monitoring, rule updates as regulations evolve, audit-ready documentation, and support through CBN examinations.</p>
+          <h4>Ongoing Compliance Management</h4>
+          <p>We remain your dedicated automation partner, providing continuous system monitoring, rule updates, audit-ready documentation, and direct support for CBN examinations.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Your timeline</div>
-    <h2 class="section-title">Three deadlines.<br>One chance to get ahead.</h2>
+    <div class="section-label">Critical deadlines</div>
+    <h2 class="section-title">Three Dates. No Extensions.</h2>
 
     <div class="timeline-row">
       <div class="timeline-card urgent">
         <div class="timeline-date red">June 10, 2026</div>
-        <div class="timeline-label">Implementation roadmap due to CBN Compliance Department. Board-signed. Every regulated institution. No exceptions.</div>
+        <div class="timeline-label">Implementation roadmap due to CBN. Board-signed. Every MSB. No exceptions.</div>
       </div>
       <div class="timeline-card">
         <div class="timeline-date">Sept 10, 2027</div>
-        <div class="timeline-label">Full AML system deployment deadline for deposit money banks (18 months from circular).</div>
+        <div class="timeline-label">Full deployment deadline for Deposit Money Banks (18 months).</div>
       </div>
       <div class="timeline-card">
         <div class="timeline-date">March 10, 2028</div>
-        <div class="timeline-label">Full compliance deadline for other financial institutions — fintechs, MFBs, MMOs, PSPs, IMTOs (24 months).</div>
+        <div class="timeline-label">Full compliance deadline for Other MSBs—Fintechs, MFBs, MMOs, PSPs, IMTOs (24 months).</div>
       </div>
     </div>
   </div>
 
   <div class="callout-box">
-    <h3>This isn't just institutional risk. It's personal.</h3>
-    <p>The CBN circular is explicit: non-compliance triggers remedial directives, administrative sanctions, and financial penalties against <strong>both the institution and accountable individuals</strong>. Your CEO and Chief Compliance Officer carry personal regulatory exposure. The CBN will monitor compliance through off-site surveillance, on-site examinations, and thematic regulatory reviews.</p>
+    <h3>Personal Liability: The Cost of Non-Compliance</h3>
+    <p>The CBN circular is explicit: sanctions apply to <strong>both the institution and accountable individuals</strong>. Your CEO and CCO carry personal regulatory exposure. Non-compliance means remedial directives, administrative sanctions, and financial penalties—monitored through off-site surveillance, on-site examinations, and thematic reviews. Protect your institution and your leadership.</p>
+  </div>
+
+  <div class="section why-section">
+    <div class="section-label">Why us</div>
+    <h2 class="section-title">Nigerian Regulatory Expertise. Advanced AI Delivery.</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>Deep CBN Knowledge</h4>
+        <p>We possess an unparalleled understanding of the CBN's AML/CFT/CPF guidelines and the new AI mandates.</p>
+      </div>
+      <div class="why-card">
+        <h4>Service, Not Software</h4>
+        <p>We deliver tailored automation and AI agent development, custom-built for your needs, not generic off-the-shelf products.</p>
+      </div>
+      <div class="why-card">
+        <h4>End-to-End Delivery</h4>
+        <p>From initial audit and roadmap development to full deployment and ongoing compliance management.</p>
+      </div>
+    </div>
   </div>
 
   <div class="section" id="lead-form">
     <div class="form-section">
-      <div class="form-title">Get your free compliance audit</div>
-      <div class="form-sub">We'll assess your current AML infrastructure against all 10 CBN baseline requirements and show you exactly what needs to be in your roadmap before June 10. No pitch. Just a clear breakdown.</div>
+      <div class="form-title">Get your compliance audit</div>
+      <div class="form-sub">We'll assess your infrastructure against the 10 CBN requirements and show you exactly what your roadmap needs. No pitch. Just clarity.</div>
 
       <div class="form-grid">
         <div class="form-group">
@@ -881,7 +844,7 @@
       <button class="submit-btn" onclick="this.textContent='Request received — we will contact you within 24 hours'; this.style.background='#0E1675'">
         Book my free compliance audit →
       </button>
-      <div class="form-note">We respond within 24 hours. Audit is free. No obligation to proceed.</div>
+      <div class="form-note">We respond within 24 hours. Audit is free. No obligation.</div>
     </div>
   </div>
 
