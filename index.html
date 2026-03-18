@@ -1,4 +1,3 @@
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -370,6 +369,104 @@
     line-height: 1.5;
   }
 
+  .callout-box {
+    background: #FF670010;
+    border: 1px solid #FF6700;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FF6700;
+    margin-bottom: 8px;
+  }
+
+  .callout-box p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .ai-section {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .ai-section h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .ai-section .subtitle {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .ai-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #013EEF;
+    margin-bottom: 0.75rem;
+  }
+
+  .ai-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ai-col li {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .ai-col li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #013EEF;
+  }
+
+  .ai-problem {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .ai-problem p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .ai-problem strong {
+    color: var(--color-text-primary);
+  }
+
   .form-section {
     background: var(--color-background-secondary);
     border: 0.5px solid var(--color-border-tertiary);
@@ -472,14 +569,14 @@
   }
 
   @media (max-width: 600px) {
-    .services-grid, .timeline-row, .form-grid, .stats-row { grid-template-columns: 1fr; }
+    .services-grid, .timeline-row, .form-grid, .stats-row, .ai-grid { grid-template-columns: 1fr; }
   }
 </style>
 
 <div class="page">
 
   <div class="urgency-bar">
-    <span>CBN Circular — March 10, 2026</span>
+    <span>Circular BSD/DIR/PUB/LAB/019/002</span>
     All regulated financial institutions must submit AML implementation roadmaps to CBN by <strong>June 10, 2026</strong>
   </div>
 
@@ -490,37 +587,127 @@
 
   <div class="hero">
     <div class="eyebrow">CBN Baseline Standards for Automated AML Solutions</div>
-    <h1>Your compliance deadline<br>is <em>90 days away.</em><br>Your system isn't ready.</h1>
-    <p>The CBN's March 10, 2026 circular mandates automated AML systems across all financial institutions in Nigeria. Banks have 18 months to fully comply. Every institution must submit an implementation roadmap to the CBN Compliance Department by June 10, 2026. Grynd builds the automation infrastructure that keeps you compliant, audit-ready, and ahead of regulatory sanctions.</p>
+    <h1>June 10 is <em>83 days away.</em><br>Is your roadmap Board-ready?</h1>
+    <p>The CBN's March 2026 circular ends manual compliance. Every fintech, bank, MMO, and PSP must submit a Board-signed implementation roadmap by June 10 — covering all 10 baseline requirements, AI governance frameworks, and phased deployment timelines. Non-compliance triggers sanctions against your institution <em>and</em> your compliance officers personally.</p>
     <div class="cta-row">
       <button class="btn-primary" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Get your compliance audit</button>
-      <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See what we build</button>
+      <button class="btn-secondary" onclick="document.getElementById('roadmap-section').scrollIntoView({behavior:'smooth'})">See what's required</button>
     </div>
     <div class="deadline-note">
       <span class="dot"></span>
-      Roadmap submission deadline: June 10, 2026 — 86 days from today
+      Roadmap submission deadline: June 10, 2026 — 83 days from today
     </div>
   </div>
 
   <div class="stats-row">
     <div class="stat">
-      <div class="stat-num">90</div>
-      <div class="stat-label">Days to submit your CBN implementation roadmap</div>
+      <div class="stat-num">83</div>
+      <div class="stat-label">Days to submit your Board-signed roadmap</div>
     </div>
     <div class="stat">
-      <div class="stat-num">18mo</div>
-      <div class="stat-label">Full compliance deadline for deposit money banks</div>
+      <div class="stat-num">87.5%</div>
+      <div class="stat-label">Of Nigerian fintechs say compliance costs already limit innovation</div>
     </div>
     <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Of CBN-supervised institutions are affected by this circular</div>
+      <div class="stat-num">10</div>
+      <div class="stat-label">Technical requirements your AML system must meet</div>
+    </div>
+  </div>
+
+  <div class="section" id="roadmap-section">
+    <div class="section-label">The roadmap requirement</div>
+    <h2 class="section-title">What the CBN expects<br>by June 10</h2>
+    <p class="section-sub">The implementation roadmap isn't a checkbox. It's a formal regulatory document that must be Board-authorised and signed by your CEO and Chief Compliance Officer.</p>
+
+    <div class="process-list">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Current state assessment</h4>
+          <p>Document your existing AML tools, manual processes, and integration points with core banking systems.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Gap analysis</h4>
+          <p>Map where your current setup fails against all 10 CBN baseline requirements — customer ID, risk profiling, sanctions screening, transaction monitoring, and more.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Solution architecture</h4>
+          <p>Define what AML platform you're deploying and how it integrates with your core banking system via secure APIs.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h4>Phased timeline</h4>
+          <p>Named milestones, target dates, and responsible owners for each implementation phase through full compliance.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h4>AI governance framework</h4>
+          <p>Annual validation protocols, bias testing methodology, explainability requirements, and human oversight structure.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <h4>Resource and budget commitment</h4>
+          <p>Cost projections, headcount requirements, and vendor contracts for the full compliance timeline.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">07</div>
+        <div class="step-body">
+          <h4>Board sign-off</h4>
+          <p>CEO and CCO signatures required. This is a formal regulatory submission, not an internal document.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-section">
+    <h3>The AI Governance Gap</h3>
+    <p class="subtitle">The CBN wrote AI into compliance. Most fintechs aren't ready.</p>
+    
+    <div class="ai-grid">
+      <div class="ai-col">
+        <h4>What the CBN requires</h4>
+        <ul>
+          <li>Annual independent validation of all AI/ML models</li>
+          <li>Accuracy and performance drift testing</li>
+          <li>Fairness audits and bias testing</li>
+          <li>Explainable insights — investigators must understand why alerts fire</li>
+          <li>Documented human oversight framework</li>
+        </ul>
+      </div>
+      <div class="ai-col">
+        <h4>What we build</h4>
+        <ul>
+          <li>AI validation protocol documentation</li>
+          <li>Bias testing methodology frameworks</li>
+          <li>Explainability audit trails</li>
+          <li>Compliance team training on AI oversight</li>
+          <li>Annual review schedules and checklists</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="ai-problem">
+      <p><strong>The problem:</strong> You can buy an AML tool from any vendor. But the governance framework is <em>your</em> responsibility — not theirs. When the CBN examiner asks how you validate your AI models for bias, your vendor won't be in the room. You will.</p>
     </div>
   </div>
 
   <div class="section" id="services">
     <div class="section-label">What we build</div>
-    <h2 class="section-title">Four automation systems.<br>Full CBN compliance.</h2>
-    <p class="section-sub">Every system we build is aligned to Circular BSD/DIR/PUB/LAB/019/002 and the FATF recommendations it enforces. No bolt-ons. Integrated infrastructure.</p>
+    <h2 class="section-title">Four systems.<br>Full CBN compliance.</h2>
+    <p class="section-sub">Every system we build is aligned to Circular BSD/DIR/PUB/LAB/019/002 and the FATF recommendations it enforces.</p>
 
     <div class="services-grid">
       <div class="service-card">
@@ -530,7 +717,7 @@
           </svg>
         </div>
         <h3>AML Transaction Monitoring</h3>
-        <p>Real-time transaction surveillance with rule-based and AI-assisted anomaly detection. Flags unusual patterns — large cash flows, structured deposits, cross-border transfers — instantly across all channels.</p>
+        <p>Real-time transaction surveillance with rule-based and AI-assisted anomaly detection. Monitors across all channels — cards, e-channels, deposits, lending — using full customer profiles, not just raw transaction data.</p>
         <span class="tag blue">CBN required</span>
       </div>
 
@@ -541,7 +728,18 @@
           </svg>
         </div>
         <h3>KYC Onboarding Automation</h3>
-        <p>Automated customer identity verification integrated with BVN and NIN national databases. Risk-scored customer profiles generated at onboarding with EDD triggers for PEPs and high-risk segments.</p>
+        <p>Automated identity verification integrated with BVN and NIN databases. Risk-scored profiles at onboarding with EDD triggers for PEPs and high-risk segments. Fuzzy matching logic to catch name variations.</p>
+        <span class="tag blue">CBN required</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
+            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        <h3>Sanctions & PEP Screening</h3>
+        <p>Real-time screening against CBN, OFAC, UN, EU sanctions lists. Continuous PEP monitoring with adverse media screening. Automatic blocking on confirmed matches. Near-real-time list updates.</p>
         <span class="tag blue">CBN required</span>
       </div>
 
@@ -551,20 +749,9 @@
             <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
           </svg>
         </div>
-        <h3>SAR Auto-Generation</h3>
-        <p>Automated Suspicious Activity Report and Suspicious Transaction Report generation in NFIU-compliant formats. Maker-checker workflows with full audit trails ensure every report is accurate, complete, and submitted on time.</p>
+        <h3>SAR Auto-Generation & NFIU Reporting</h3>
+        <p>Automated STR and SAR generation in NFIU-compliant formats. Maker-checker workflows with tamper-proof audit trails. Secure API-integrated reporting pipeline with encrypted transmission.</p>
         <span class="tag blue">NFIU required</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#013EEF" stroke-width="1.5">
-            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-        </div>
-        <h3>Real-Time CBN/NFIU Reporting Pipeline</h3>
-        <p>Secure API-integrated reporting pipeline that connects your core banking system to CBN and NFIU submission requirements. Encrypted transmission, role-based access, and tamper-proof audit logs built in.</p>
-        <span class="tag blue">CBN required</span>
       </div>
     </div>
   </div>
@@ -572,35 +759,35 @@
   <div class="section">
     <div class="section-label">How it works</div>
     <h2 class="section-title">From audit to live system<br>in four steps.</h2>
-    <p class="section-sub">We move fast because your deadline doesn't wait. Most institutions are behind the optimal preparation curve already.</p>
+    <p class="section-sub">We move fast because your deadline doesn't wait.</p>
 
     <div class="process-list">
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-body">
           <h4>Compliance gap audit</h4>
-          <p>We assess your current AML infrastructure against CBN Circular BSD/DIR/PUB/LAB/019/002. You get a clear breakdown of what's missing, what's at risk, and what the roadmap submission needs to say.</p>
+          <p>We assess your current AML infrastructure against all 10 CBN baseline requirements. You get a clear breakdown: what's missing, what's at risk, and exactly what your roadmap needs.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-body">
-          <h4>Implementation roadmap</h4>
-          <p>We build the structured roadmap document required by the CBN Compliance Department — covering all 10 baseline technical requirements, timeline commitments, and system architecture decisions.</p>
+          <h4>Board-ready roadmap</h4>
+          <p>We build the structured implementation roadmap document required by the CBN Compliance Department — gap analysis, solution architecture, phased timeline, governance framework, resource commitments. Formatted for Board sign-off.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <div class="step-body">
-          <h4>Automation build and integration</h4>
-          <p>We build your AML automation stack — transaction monitoring, KYC flows, SAR generation, and reporting pipelines — integrated with your core banking system via secure APIs.</p>
+          <h4>Automation build & integration</h4>
+          <p>We build your AML automation stack — transaction monitoring, KYC flows, sanctions screening, SAR generation, reporting pipelines — integrated with your core banking system via secure APIs.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">04</div>
         <div class="step-body">
           <h4>Ongoing compliance management</h4>
-          <p>We stay on as your compliance automation partner — monitoring system performance, updating rules as the regulatory environment evolves, and ensuring you stay audit-ready at every CBN inspection.</p>
+          <p>We stay on as your compliance automation partner. System performance monitoring, rule updates as regulations evolve, audit-ready documentation, and support through CBN examinations.</p>
         </div>
       </div>
     </div>
@@ -613,7 +800,7 @@
     <div class="timeline-row">
       <div class="timeline-card urgent">
         <div class="timeline-date red">June 10, 2026</div>
-        <div class="timeline-label">Implementation roadmap due to CBN Compliance Department. Every regulated institution. No exceptions.</div>
+        <div class="timeline-label">Implementation roadmap due to CBN Compliance Department. Board-signed. Every regulated institution. No exceptions.</div>
       </div>
       <div class="timeline-card">
         <div class="timeline-date">Sept 10, 2027</div>
@@ -621,17 +808,20 @@
       </div>
       <div class="timeline-card">
         <div class="timeline-date">March 10, 2028</div>
-        <div class="timeline-label">Full compliance deadline for other financial institutions — fintechs, MFBs, payment providers (24 months).</div>
+        <div class="timeline-label">Full compliance deadline for other financial institutions — fintechs, MFBs, MMOs, PSPs, IMTOs (24 months).</div>
       </div>
     </div>
+  </div>
 
-    <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.6;">Non-compliance exposes your institution to administrative sanctions, remedial directives, and financial penalties against both the institution and responsible compliance officers personally. The CBN will monitor compliance through off-site surveillance, on-site examinations, and thematic regulatory reviews.</p>
+  <div class="callout-box">
+    <h3>This isn't just institutional risk. It's personal.</h3>
+    <p>The CBN circular is explicit: non-compliance triggers remedial directives, administrative sanctions, and financial penalties against <strong>both the institution and accountable individuals</strong>. Your CEO and Chief Compliance Officer carry personal regulatory exposure. The CBN will monitor compliance through off-site surveillance, on-site examinations, and thematic regulatory reviews.</p>
   </div>
 
   <div class="section" id="lead-form">
     <div class="form-section">
       <div class="form-title">Get your free compliance audit</div>
-      <div class="form-sub">We'll assess your current AML infrastructure against the CBN baseline standards and show you exactly what needs to be built before June 10. No pitch. Just a clear breakdown.</div>
+      <div class="form-sub">We'll assess your current AML infrastructure against all 10 CBN baseline requirements and show you exactly what needs to be in your roadmap before June 10. No pitch. Just a clear breakdown.</div>
 
       <div class="form-grid">
         <div class="form-group">
@@ -666,7 +856,17 @@
           <label>Phone (WhatsApp)</label>
           <input type="tel" placeholder="+234 800 000 0000" />
         </div>
-        <div class="form-group full">
+        <div class="form-group">
+          <label>Monthly transaction volume</label>
+          <select>
+            <option value="">Select range</option>
+            <option>Under ₦100M</option>
+            <option>₦100M – ₦500M</option>
+            <option>₦500M – ₦1B</option>
+            <option>Over ₦1B</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Current AML status</label>
           <select>
             <option value="">Where are you today?</option>
