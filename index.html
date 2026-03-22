@@ -589,6 +589,11 @@
     background: var(--color-royal-blue);
   }
 
+  .submit-btn:disabled {
+    background: var(--color-royal-blue);
+    cursor: not-allowed;
+  }
+
   .form-note {
     font-size: 13px;
     color: var(--text-muted-dark);
@@ -834,64 +839,66 @@
       <div class="form-title">Get your compliance audit</div>
       <div class="form-sub">We'll assess your infrastructure against the 10 CBN requirements and show you exactly what your roadmap needs. No pitch. Just clarity.</div>
 
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Full name</label>
-          <input type="text" placeholder="Adaeze Okafor" />
+      <form id="aml-form" onsubmit="return submitForm(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="full_name">Full name</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Adaeze Okafor" required />
+          </div>
+          <div class="form-group">
+            <label for="job_title">Job title</label>
+            <input type="text" id="job_title" name="job_title" placeholder="Chief Compliance Officer" required />
+          </div>
+          <div class="form-group">
+            <label for="institution_name">Institution name</label>
+            <input type="text" id="institution_name" name="institution_name" placeholder="Zenith Payments Ltd" required />
+          </div>
+          <div class="form-group">
+            <label for="institution_type">Institution type</label>
+            <select id="institution_type" name="institution_type" required>
+              <option value="">Select type</option>
+              <option value="Deposit Money Bank">Deposit Money Bank</option>
+              <option value="Fintech / Payment Service Provider">Fintech / Payment Service Provider</option>
+              <option value="Mobile Money Operator">Mobile Money Operator</option>
+              <option value="Microfinance Bank">Microfinance Bank</option>
+              <option value="International Money Transfer Operator">International Money Transfer Operator</option>
+              <option value="Other regulated institution">Other regulated institution</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="work_email">Work email</label>
+            <input type="email" id="work_email" name="work_email" placeholder="adaeze@institution.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (WhatsApp)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+234 800 000 0000" required />
+          </div>
+          <div class="form-group">
+            <label for="transaction_volume">Monthly transaction volume</label>
+            <select id="transaction_volume" name="transaction_volume" required>
+              <option value="">Select range</option>
+              <option value="Under ₦100M">Under ₦100M</option>
+              <option value="₦100M – ₦500M">₦100M – ₦500M</option>
+              <option value="₦500M – ₦1B">₦500M – ₦1B</option>
+              <option value="Over ₦1B">Over ₦1B</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="aml_status">Current AML status</label>
+            <select id="aml_status" name="aml_status" required>
+              <option value="">Where are you today?</option>
+              <option value="Fully manual — no automation in place">Fully manual — no automation in place</option>
+              <option value="Partial — some tools, not integrated">Partial — some tools, not integrated</option>
+              <option value="Have a system — need gap assessment">Have a system — need gap assessment</option>
+              <option value="Starting from scratch — new institution">Starting from scratch — new institution</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Job title</label>
-          <input type="text" placeholder="Chief Compliance Officer" />
-        </div>
-        <div class="form-group">
-          <label>Institution name</label>
-          <input type="text" placeholder="Zenith Payments Ltd" />
-        </div>
-        <div class="form-group">
-          <label>Institution type</label>
-          <select>
-            <option value="">Select type</option>
-            <option>Deposit Money Bank</option>
-            <option>Fintech / Payment Service Provider</option>
-            <option>Mobile Money Operator</option>
-            <option>Microfinance Bank</option>
-            <option>International Money Transfer Operator</option>
-            <option>Other regulated institution</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Work email</label>
-          <input type="email" placeholder="adaeze@institution.com" />
-        </div>
-        <div class="form-group">
-          <label>Phone (WhatsApp)</label>
-          <input type="tel" placeholder="+234 800 000 0000" />
-        </div>
-        <div class="form-group">
-          <label>Monthly transaction volume</label>
-          <select>
-            <option value="">Select range</option>
-            <option>Under ₦100M</option>
-            <option>₦100M – ₦500M</option>
-            <option>₦500M – ₦1B</option>
-            <option>Over ₦1B</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Current AML status</label>
-          <select>
-            <option value="">Where are you today?</option>
-            <option>Fully manual — no automation in place</option>
-            <option>Partial — some tools, not integrated</option>
-            <option>Have a system — need gap assessment</option>
-            <option>Starting from scratch — new institution</option>
-          </select>
-        </div>
-      </div>
 
-      <button class="submit-btn" onclick="this.textContent='Request received — we will contact you within 24 hours'; this.style.background='#0E1675'">
-        Book a free compliance audit →
-      </button>
+        <button type="submit" class="submit-btn" id="submit-btn">
+          Book a free compliance audit →
+        </button>
+      </form>
       <div class="form-note">We respond within 24 hours. Audit is free. No obligation.</div>
     </div>
   </div>
@@ -901,5 +908,59 @@
   </div>
 
 </div>
+
+<script>
+  // WEBHOOK URL - Change to production URL when ready
+  const WEBHOOK_URL = 'https://n8n.srv1159796.hstgr.cloud/webhook-test/b0663e33-5f9f-4531-93c6-a181468a911c';
+
+  async function submitForm(event) {
+    event.preventDefault();
+    
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const formData = {
+      full_name: document.getElementById('full_name').value,
+      job_title: document.getElementById('job_title').value,
+      institution_name: document.getElementById('institution_name').value,
+      institution_type: document.getElementById('institution_type').value,
+      work_email: document.getElementById('work_email').value,
+      phone: document.getElementById('phone').value,
+      transaction_volume: document.getElementById('transaction_volume').value,
+      aml_status: document.getElementById('aml_status').value,
+      submitted_at: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        btn.textContent = 'Request received — we will contact you within 24 hours';
+        btn.style.background = '#0E1675';
+        document.getElementById('aml-form').reset();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      btn.textContent = 'Something went wrong — please try again';
+      btn.style.background = '#FF6700';
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.textContent = 'Book a free compliance audit →';
+        btn.style.background = '';
+      }, 3000);
+    }
+
+    return false;
+  }
+</script>
+
 </body>
 </html>
