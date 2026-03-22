@@ -933,38 +933,35 @@
     };
 
     try {
-      const response = await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+  const response = await fetch(WEBHOOK_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  });
 
-      if (response.ok) {
-  btn.textContent = 'Redirecting to book your call...';
-  btn.style.background = '#0E1675';
-  
-  // Redirect to Calendly with lead_id in UTM
-  const calendlyUrl = 'https://calendly.com/yomi-grynd/aml-automations-compliance-audit?utm_source=aml_form&utm_campaign=lead_capture&utm_content=' + encodeURIComponent(formData.work_email);
-  
+  if (response.ok) {
+    btn.textContent = 'Redirecting to book your call...';
+    btn.style.background = '#0E1675';
+    
+    const calendlyUrl = 'https://calendly.com/yomi-grynd/aml-automations-compliance-audit?utm_source=aml_form&utm_campaign=lead_capture&utm_content=' + encodeURIComponent(formData.work_email);
+    
+    setTimeout(() => {
+      window.location.href = calendlyUrl;
+    }, 1000);
+  } else {
+    throw new Error('Submission failed');
+  }
+} catch (error) {
+  btn.textContent = 'Something went wrong — please try again';
+  btn.style.background = '#FF6700';
+  btn.disabled = false;
   setTimeout(() => {
-    window.location.href = calendlyUrl;
-  }, 1000);
+    btn.textContent = 'Book a free compliance audit →';
+    btn.style.background = '';
+  }, 3000);
 }
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch (error) {
-      btn.textContent = 'Something went wrong — please try again';
-      btn.style.background = '#FF6700';
-      btn.disabled = false;
-      setTimeout(() => {
-        btn.textContent = 'Book a free compliance audit →';
-        btn.style.background = '';
-      }, 3000);
-    }
-
     return false;
   }
 </script>
