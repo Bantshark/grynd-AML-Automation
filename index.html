@@ -942,9 +942,16 @@
       });
 
       if (response.ok) {
-        btn.textContent = 'Request received — we will contact you within 24 hours';
-        btn.style.background = '#0E1675';
-        document.getElementById('aml-form').reset();
+  btn.textContent = 'Redirecting to book your call...';
+  btn.style.background = '#0E1675';
+  
+  // Redirect to Calendly with lead_id in UTM
+  const calendlyUrl = 'https://calendly.com/yomi-grynd/aml-automations-compliance-audit?utm_source=aml_form&utm_campaign=lead_capture&utm_content=' + encodeURIComponent(formData.work_email);
+  
+  setTimeout(() => {
+    window.location.href = calendlyUrl;
+  }, 1000);
+}
       } else {
         throw new Error('Submission failed');
       }
