@@ -945,8 +945,9 @@ if (document.getElementById('website').value !== '') {
   const response = await fetch(WEBHOOK_URL, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
-    },
+  'Content-Type': 'application/json',
+  'X-Webhook-Secret': 'grynd-aml-2026-secure'
+},
     body: JSON.stringify(formData)
   });
 
