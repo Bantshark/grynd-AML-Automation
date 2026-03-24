@@ -849,6 +849,10 @@
             <label for="job_title">Job title</label>
             <input type="text" id="job_title" name="job_title" placeholder="Chief Compliance Officer" required />
           </div>
+          <div class="form-group" style="position: absolute; left: -9999px;">
+  <label for="website">Website</label>
+  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+</div>
           <div class="form-group">
             <label for="institution_name">Institution name</label>
             <input type="text" id="institution_name" name="institution_name" placeholder="Zenith Payments Ltd" required />
@@ -919,7 +923,12 @@
     const btn = document.getElementById('submit-btn');
     btn.disabled = true;
     btn.textContent = 'Submitting...';
-
+// Honeypot check — reject bot submissions
+if (document.getElementById('website').value !== '') {
+  btn.textContent = 'Request received — we will contact you within 24 hours';
+  btn.style.background = '#0E1675';
+  return false;
+}
     const formData = {
       full_name: document.getElementById('full_name').value,
       job_title: document.getElementById('job_title').value,
